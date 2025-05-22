@@ -1,88 +1,102 @@
-# CRISPR gRNA Designer
+# CRISPR gRNA Designer Pro
 
-## Overview
-An R Shiny application for designing and evaluating CRISPR guide RNAs (gRNAs). This tool supports multiple CRISPR systems (Cas9, Cas12a, and Cas13) and provides comprehensive analysis tools for gRNA design and evaluation.
-
-![CRISPR gRNA Designer Screenshot](screenshots/app_screenshot.png)
+A comprehensive R Shiny application for designing and evaluating CRISPR guide RNAs (gRNAs) with support for multiple CRISPR systems and advanced analysis capabilities.
 
 ## Features
-- Support for multiple CRISPR systems (Cas9, Cas12a, Cas13)
-- Interactive visualization of gRNA properties
-- Off-target analysis with heatmap visualization
-- Efficiency and specificity scoring
-- Customizable parameters
-- Export functionality for further analysis
+
+- **Multi-system compatibility**: Support for Cas9, Cas12a, and Cas13 systems
+- **Intelligent scoring**: Advanced efficiency and specificity analysis algorithms
+- **Off-target prediction**: Comprehensive safety evaluation and visualization
+- **Interactive interface**: Real-time parameter adjustment and result visualization
+- **Export capabilities**: Results available for downstream analysis
+
+## Application Interface
+
+### Input & Parameter Configuration
+![Sequence Input Interface](Sequence%20Input.png)
+
+The main interface allows users to input target DNA sequences and configure CRISPR system parameters including PAM sequences, mismatch tolerance, and efficiency thresholds.
+
+### Results Visualization
+![Interactive Visualizations](Visualisation.png)
+
+Real-time visualization of gRNA efficiency scores, with sortable tables displaying sequence information, targeting positions, and calculated metrics.
+
+### Off-target Analysis
+![Off-target Analysis](off-target%20analysis.png)
+
+Comprehensive off-target analysis featuring heatmap visualizations and specificity scoring to ensure safe and effective gRNA selection.
+
+### Documentation
+![Application Documentation](about%20page.png)
+
+Built-in documentation provides guidance on parameter selection, interpretation of results, and best practices for CRISPR gRNA design.
 
 ## Installation
 
 ### Prerequisites
 - R version 4.0.0 or higher
-- Required R packages:
-  - shiny
-  - shinydashboard
-  - Biostrings
-  - tidyverse
-  - plotly
-  - DT
-  - shinyjs
-  - shinycssloaders
-  - RColorBrewer
+- Required R packages (automatically installed via dependency script)
 
 ### Setup
-1. Clone the repository:
 ```bash
-git clone https://github.com/winniecook/crispr-guide-designer-rshiny
-cd crispr-grna-designer
+git clone https://github.com/winniecook/crispr-guide-designer-rshiny.git
+cd crispr-guide-designer-rshiny
 ```
 
-2. Install required packages:
-```R
+```r
+# Install dependencies
 source("install_dependencies.R")
-```
 
-3. Run the application:
-```R
+# Launch application
 shiny::runApp()
 ```
 
 ## Usage
-1. Input your DNA sequence
-2. Select CRISPR system (Cas9, Cas12a, or Cas13)
-3. Adjust parameters as needed:
-   - Maximum mismatches
-   - PAM sequence
-   - Minimum efficiency threshold
-4. Click "Design gRNAs" to generate results
-5. View results in the data table and visualization tabs
+
+1. **Sequence Input**: Enter your target DNA sequence in the provided text area
+2. **System Selection**: Choose appropriate CRISPR system (Cas9, Cas12a, or Cas13)
+3. **Parameter Configuration**: Adjust mismatch tolerance, PAM sequences, and efficiency thresholds
+4. **Analysis**: Generate results and review efficiency scores, specificity metrics, and off-target predictions
+5. **Export**: Download results for further analysis or integration into experimental workflows
+
+## Scoring Methodology
+
+### Efficiency Scoring
+- GC content optimization (30-70% range)
+- Position-specific nucleotide preferences
+- Secondary structure considerations
+- Homopolymer run assessment
+
+### Specificity Analysis
+- Genome-wide off-target search algorithms
+- Mismatch penalty calculations
+- Position-weighted scoring matrices
+
+## Technical Implementation
+
+Built using the R Shiny framework with the following core dependencies:
+- `Biostrings` for sequence analysis
+- `plotly` for interactive visualizations
+- `DT` for dynamic data tables
+- `shinydashboard` for professional UI components
 
 ## File Structure
+
 ```
-crispr-grna-designer/
-├── app.R               # Main application file
-├── helpers.R           # Helper functions
-├── install_dependencies.R  # Package installation script
-├── tests/             # Test directory
-│   ├── testthat.R    # Test configuration
-│   └── testthat/     # Test files
-├── www/              # Static assets
-└── README.md         # This file
+crispr-guide-designer-rshiny/
+├── app.R              # Main application logic
+├── helpers.R          # Core analysis functions
+├── docs.md           # Application documentation
+├── tests/            # Unit testing framework
+└── README.md         # Project documentation
 ```
 
-## Contributing
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
 
-## Testing
-Run tests using:
-```R
-testthat::test_dir('tests/testthat')
+
+## Citation
+
+If you use this tool in your research, please cite:
 ```
-
-## License
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-
-## Authors
-* **Your Name** - *Initial work*
-
-## Acknowledgments
-* Based on established CRISPR design principles
-* Inspired by various CRISPR design tools in the field
+CRISPR gRNA Designer Pro. Available at: https://github.com/winniecook/crispr-guide-designer-rshiny
+```
